@@ -10,7 +10,7 @@ body {
 
 .container {
     max-width: 400px;
-    width: 100%;
+    width: 90%;
     padding: 20px;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -75,8 +75,8 @@ textarea {
 }
 
 button {
-    background-color: #6200ea;
-    color: #ffffff;
+    background-color: #6200ea !important;
+    color: #ffffff !important;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -86,12 +86,51 @@ button {
 }
 
 button:hover {
-    background-color: #3700b3;
+    background-color: #3700b3 !important;
     transform: scale(1.05);
+}
+
+button.success {
+    background-color: #28a745 !important;
 }
 
 #resultado {
     margin-top: 10px;
     font-weight: bold;
     color: #d32f2f;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+}
+
+.notification.hidden {
+    display: none;
+}
+
+.notification p {
+    margin: 0 0 10px 0;
+}
+
+.notification button {
+    background-color: #ffffff;
+    color: #28a745;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.notification button:hover {
+    background-color: #f8f9fa;
 }
