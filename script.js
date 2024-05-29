@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const charCount = document.getElementById('charCount');
     const smsForm = document.getElementById('smsForm');
     const resultado = document.getElementById('resultado');
-    
+    const successNotification = document.getElementById('successNotification');
+    const okButton = document.getElementById('okButton');
+    const submitButton = smsForm.querySelector('button[type="submit"]');
+
     // Pre-fill the phone number input with "53"
     numeroInput.value = "53";
 
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             resultado.innerText = 'SMS enviado con éxito';
+            submitButton.classList.add('success');
+            successNotification.classList.remove('hidden');
             smsForm.reset();
             numeroInput.value = "53"; // Reset phone number with prefix
             charCount.innerText = '140 caracteres restantes';
@@ -51,5 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             resultado.innerText = 'Error al enviar SMS: ' + error.message;
         });
+    });
+
+    // Handle OK button click
+    okButton.addEventListener('click', function() {
+        successNotification.classList.add('hidden');
+        submitButton.classList.remove('success');
+        resultado.innerText = '';
     });
 });
