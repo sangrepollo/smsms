@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const charCount = document.getElementById('charCount');
     const smsForm = document.getElementById('smsForm');
     const resultado = document.getElementById('resultado');
-    const successNotification = document.getElementById('successNotification');
-    const okButton = document.getElementById('okButton');
-    const submitButton = smsForm.querySelector('button[type="submit"]');
-
+    const notification = document.getElementById('notification');
+    const notificationClose = document.getElementById('notification-close');
+    
     // Pre-fill the phone number input with "53"
     numeroInput.value = "53";
 
@@ -46,9 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
-            resultado.innerText = 'SMS enviado con éxito';
-            submitButton.classList.add('success');
-            successNotification.classList.remove('hidden');
+            notification.style.display = 'flex';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // Auto-hide after 3 seconds
+
             smsForm.reset();
             numeroInput.value = "53"; // Reset phone number with prefix
             charCount.innerText = '140 caracteres restantes';
@@ -58,10 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle OK button click
-    okButton.addEventListener('click', function() {
-        successNotification.classList.add('hidden');
-        submitButton.classList.remove('success');
-        resultado.innerText = '';
+    // Handle notification close button
+    notificationClose.addEventListener('click', function() {
+        notification.style.display = 'none';
+        location.reload(); // Reload the page to reset the form
     });
 });
