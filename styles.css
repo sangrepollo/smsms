@@ -16,11 +16,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.container:hover {
-    transform: scale(1.02);
+    position: relative;
 }
 
 h1 {
@@ -75,8 +71,8 @@ textarea {
 }
 
 button {
-    background-color: #6200ea !important;
-    color: #ffffff !important;
+    background-color: #6200ea;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -86,12 +82,12 @@ button {
 }
 
 button:hover {
-    background-color: #3700b3 !important;
+    background-color: #3700b3;
     transform: scale(1.05);
 }
 
 button.success {
-    background-color: #28a745 !important;
+    background-color: #28a745;
 }
 
 #resultado {
@@ -101,36 +97,25 @@ button.success {
 }
 
 .notification {
-    position: fixed;
-    top: 20px;
+    position: absolute;
+    top: -60px; /* Position above the form */
     left: 50%;
     transform: translateX(-50%);
     background-color: #28a745;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 40px);
 }
 
-.notification.hidden {
-    display: none;
-}
-
-.notification p {
-    margin: 0 0 10px 0;
-}
-
-.notification button {
-    background-color: #ffffff;
-    color: #28a745;
+.close-btn {
+    background: transparent;
     border: none;
-    padding: 5px 10px;
+    color: #fff;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 4px;
-}
-
-.notification button:hover {
-    background-color: #f8f9fa;
 }
