@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +9,14 @@
 <body>
     <div class="container">
         <h1>Enviar SMS</h1>
+        <div id="notification" class="notification" style="display: none;">
+            SMS enviado con éxito
+            <button id="notification-close" class="close-btn">OK</button>
+        </div>
         <form id="smsForm">
             <div class="form-group">
                 <label for="numero">Número de teléfono:</label>
-                <input type="text" id="numero" placeholder="53XXXXXXXX" maxlength="10" required>
+                <input type="text" id="numero" placeholder="535XXXXXXX" maxlength="10" required>
             </div>
             <div class="form-group">
                 <label for="mensaje">Mensaje:</label>
@@ -21,10 +26,6 @@
             <button type="submit">Enviar SMS</button>
         </form>
         <p id="resultado"></p>
-    </div>
-    <div id="successNotification" class="notification hidden">
-        <p>SMS enviado con éxito</p>
-        <button id="okButton">OK</button>
     </div>
     <script src="script.js"></script>
 </body>
