@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar SMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enviar SMS</h1>
+        <form id="smsForm">
+            <div class="form-group">
+                <label for="numero">Número de teléfono:</label>
+                <input type="text" id="numero" placeholder="535XXXXXXX" maxlength="10" required>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" placeholder="Escribe tu mensaje aquí" maxlength="140" required></textarea>
+                <p id="charCount">140 caracteres restantes</p>
+            </div>
+            <button type="submit">Enviar SMS</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
