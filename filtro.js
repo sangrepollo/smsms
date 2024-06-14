@@ -3,6 +3,8 @@ const malasPalabras = [
     "pinga",
     "singona",
     "gey",
+    "chivato",
+    "chivaton",
     "gay",
     "hackeada",
     "hackeado",
