@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Check for bad words
         if (contieneMalasPalabras(mensaje)) {
-            resultado.innerText = 'Error: El mensaje contiene palabras inapropiadas.';
+            resultado.innerText = 'Error:🚫 El mensaje contiene palabras inapropiadas.';
             return;
         }
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle notification close button
     notificationClose.addEventListener('click', function() {
         notification.style.display = 'none';
-        resultado.innerText = 'SMS enviado con éxito';
+        resultado.innerText = '🎉🎉🎉🎉🎉🎉🎉';
     });
 
     // Initialize countdown if there's remaining time in localStorage
