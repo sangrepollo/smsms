@@ -9,6 +9,10 @@
 <body>
     <div class="container">
         <h1>Enviar SMS</h1>
+        <div id="notification" class="notification" style="display: none;">
+            SMS enviado con éxito
+            <button id="notification-close" class="close-btn">OK</button>
+        </div>
         <form id="smsForm">
             <div class="form-group">
                 <label for="numero">Número de teléfono:</label>
@@ -19,14 +23,10 @@
                 <textarea id="mensaje" placeholder="Escribe tu mensaje aquí" maxlength="140" required></textarea>
                 <p id="charCount">140 caracteres restantes</p>
             </div>
-            <p id="countdown"></p>
             <button type="submit" id="sendButton">Enviar SMS</button>
         </form>
         <p id="resultado"></p>
-        <div id="notification" class="notification">
-            <p>SMS enviado con éxito</p>
-            <button id="notification-close">OK</button>
-        </div>
+        <p id="countdown" class="countdown"></p>
     </div>
     <script src="script.js" type="module"></script>
 </body>
