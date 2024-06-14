@@ -1,4 +1,3 @@
-// filtro.js
 const malasPalabras = [
     "pollo",
     "malaPalabra2",
