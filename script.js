@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 249|HAVLgnLfZVwbM0URkOHu3JLXGF2cH4MEgFgdmncB54d510f7'
+                'Authorization': 'Bearer 49|HAVLgnLfZVwbM0URkOHu3JLXGF2cH4MEgFgdmncB54d510f7'
             },
             body: JSON.stringify({ recipient: numero, mstext: mensaje })
         })
