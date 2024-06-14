@@ -1,6 +1,10 @@
 const malasPalabras = [
     "coño",
     "pinga",
+    "pisar",
+    "pizar",
+    "piza",
+    "pisa",
     "fotingo",
     "putica",
     "empingando",
