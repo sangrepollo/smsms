@@ -1,6 +1,6 @@
 // filtro.js
 const malasPalabras = [
-    "malaPalabra1",
+    "pollo",
     "malaPalabra2",
     "malaPalabra3"
     // Agrega aquí todas las malas palabras que quieras filtrar
