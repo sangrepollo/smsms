@@ -8,22 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enviar SMS</h1>
+        <h1>Enviar SMS 🟢</h1>
         <div id="notification" class="notification" style="display: none;">
-            SMS enviado con éxito
-            <button id="notification-close" class="close-btn">OK</button>
+            ✅SMS enviado con éxito✅ 
+            <button id="notification-close" class="close-btn">🔚</button>
         </div>
         <form id="smsForm">
             <div class="form-group">
-                <label for="numero">Número de teléfono:</label>
+                <label for="numero">Número de teléfono☎️:</label>
                 <input type="text" id="numero" placeholder="535XXXXXXX" maxlength="10" required>
             </div>
             <div class="form-group">
-                <label for="mensaje">Mensaje:</label>
+                <label for="mensaje">Mensaje📩:</label>
                 <textarea id="mensaje" placeholder="Escribe tu mensaje aquí" maxlength="140" required></textarea>
                 <p id="charCount">140 caracteres restantes</p>
             </div>
-            <button type="submit" id="sendButton">Enviar SMS</button>
+            <button type="submit" id="sendButton">📤Enviar SMS📤</button>
         </form>
         <p id="resultado"></p>
         <p id="countdown" class="countdown"></p>
