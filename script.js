@@ -1,4 +1,3 @@
-// script.js
 import { contieneMalasPalabras } from './filtro.js';
 
 document.addEventListener('DOMContentLoaded', function() {
