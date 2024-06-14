@@ -8,6 +8,7 @@ const malasPalabras = [
     "toleton",
     "etafador",
     "mojon",
+    "rabo",
     "mierda",
     "chomoso",
     "chomosa",
