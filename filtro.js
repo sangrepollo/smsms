@@ -1,7 +1,16 @@
 const malasPalabras = [
     "coño",
     "pinga",
+    "singona",
+    "gey",
+    "gay",
+    "hackeada",
+    "hackeado",
+    "hacker",
     "singao",
+    "jaker",
+    "jakeador",
+    
     "carajo",
     "cago",
     "resing",
