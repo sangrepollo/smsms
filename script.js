@@ -54,16 +54,14 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 247|HD8IkiGD1EwGr8XG7uhmIUGFJ9QDYUAO9t2qnffF641fb5b9'
+                'Authorization': 'Bearer 181|nZ4kpTSbVWFFYskMu6r4pFir3mW60JcQwcBDywQF19fbf5bc'
             },
             body: JSON.stringify({ recipient: numero, mstext: mensaje })
         })
         .then(response => response.json())
         .then(data => {
-            notification.style.display = 'flex';
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000); // Auto-hide after 3 seconds
+            resultado.innerText = '';
+            notification.style.display = 'block';
 
             smsForm.reset();
             numeroInput.value = "53"; // Reset phone number with prefix
@@ -79,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle notification close button
     notificationClose.addEventListener('click', function() {
         notification.style.display = 'none';
-        location.reload(); // Reload the page to reset the form
+        resultado.innerText = 'SMS enviado con éxito';
     });
 
     function startCountdown(seconds) {
