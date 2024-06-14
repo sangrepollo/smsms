@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendButton = document.getElementById('sendButton');
     const countdown = document.getElementById('countdown');
 
-    let isCountingDown = false;
     let countdownInterval;
+    let countdownTime = localStorage.getItem('countdownTime');
 
     // Pre-fill the phone number input with "53"
     numeroInput.value = "53";
@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     smsForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        if (isCountingDown) return;
-
         const numero = numeroInput.value;
         const mensaje = mensajeInput.value;
 
@@ -54,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 248|N9ovqsw8bUmQBsN6TioNqV83nLUqs1YQWyDG0Rv230a07589'
+                'Authorization': 'Bearer 181|nZ4kpTSbVWFFYskMu6r4pFir3mW60JcQwcBDywQF19fbf5bc'
             },
             body: JSON.stringify({ recipient: numero, mstext: mensaje })
         })
@@ -80,20 +78,32 @@ document.addEventListener('DOMContentLoaded', function() {
         resultado.innerText = 'SMS enviado con éxito';
     });
 
+    // Initialize countdown if there's remaining time in localStorage
+    if (countdownTime) {
+        const remainingTime = Math.max(0, countdownTime - Date.now());
+        if (remainingTime > 0) {
+            startCountdown(Math.ceil(remainingTime / 1000));
+        } else {
+            localStorage.removeItem('countdownTime');
+        }
+    }
+
     function startCountdown(seconds) {
-        isCountingDown = true;
-        countdown.innerText = `Espera ${seconds} segundos para enviar otro SMS.`;
         sendButton.disabled = true;
+        countdown.innerText = `Espera ${seconds} segundos para enviar otro SMS.`;
+
+        const endTime = Date.now() + seconds * 1000;
+        localStorage.setItem('countdownTime', endTime);
 
         countdownInterval = setInterval(() => {
-            seconds--;
-            countdown.innerText = `Espera ${seconds} segundos para enviar otro SMS.`;
-
-            if (seconds <= 0) {
+            const remainingSeconds = Math.ceil((endTime - Date.now()) / 1000);
+            if (remainingSeconds > 0) {
+                countdown.innerText = `Espera ${remainingSeconds} segundos para enviar otro SMS.`;
+            } else {
                 clearInterval(countdownInterval);
                 countdown.innerText = '';
                 sendButton.disabled = false;
-                isCountingDown = false;
+                localStorage.removeItem('countdownTime');
             }
         }, 1000);
     }
