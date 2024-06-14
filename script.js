@@ -1,3 +1,6 @@
+// script.js
+import { contieneMalasPalabras } from './filtro.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const numeroInput = document.getElementById('numero');
     const mensajeInput = document.getElementById('mensaje');
@@ -6,7 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultado = document.getElementById('resultado');
     const notification = document.getElementById('notification');
     const notificationClose = document.getElementById('notification-close');
-    
+    const sendButton = document.getElementById('sendButton');
+    const countdown = document.getElementById('countdown');
+
+    let isCountingDown = false;
+    let countdownInterval;
+
     // Pre-fill the phone number input with "53"
     numeroInput.value = "53";
 
@@ -31,9 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle form submission
     smsForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
+        if (isCountingDown) return;
+
         const numero = numeroInput.value;
         const mensaje = mensajeInput.value;
+
+        // Check for bad words
+        if (contieneMalasPalabras(mensaje)) {
+            resultado.innerText = 'Error: El mensaje contiene palabras inapropiadas.';
+            return;
+        }
 
         fetch('https://zdsms.cu/api/v1/message/send', {
             method: 'POST',
@@ -53,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
             smsForm.reset();
             numeroInput.value = "53"; // Reset phone number with prefix
             charCount.innerText = '140 caracteres restantes';
+
+            startCountdown(30); // Start the countdown
         })
         .catch(error => {
             resultado.innerText = 'Error al enviar SMS: ' + error.message;
@@ -64,4 +82,22 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.style.display = 'none';
         location.reload(); // Reload the page to reset the form
     });
+
+    function startCountdown(seconds) {
+        isCountingDown = true;
+        countdown.innerText = `Espera ${seconds} segundos para enviar otro SMS.`;
+        sendButton.disabled = true;
+
+        countdownInterval = setInterval(() => {
+            seconds--;
+            countdown.innerText = `Espera ${seconds} segundos para enviar otro SMS.`;
+
+            if (seconds <= 0) {
+                clearInterval(countdownInterval);
+                countdown.innerText = '';
+                sendButton.disabled = false;
+                isCountingDown = false;
+            }
+        }, 1000);
+    }
 });
