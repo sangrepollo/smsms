@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 181|nZ4kpTSbVWFFYskMu6r4pFir3mW60JcQwcBDywQF19fbf5bc'
+                'Authorization': 'Bearer 248|N9ovqsw8bUmQBsN6TioNqV83nLUqs1YQWyDG0Rv230a07589'
             },
             body: JSON.stringify({ recipient: numero, mstext: mensaje })
         })
