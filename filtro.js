@@ -1,6 +1,7 @@
 const malasPalabras = [
     "coño",
     "pinga",
+    "Samuel",
     "maricon",
     "marico",
     "citado",
